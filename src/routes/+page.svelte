@@ -1,4 +1,5 @@
 <script lang="ts">
+	import Card from '$lib/components/Card/Card.svelte';
 	import '@fontsource-variable/rubik';
 	import '../app.css';
 </script>
@@ -7,6 +8,27 @@
 	<title>Frontend Mentor | Time tracking dashboard</title>
 </svelte:head>
 
-Report for Jeremy Robson Weekly Work 32hrs Previous - 36hrs Play 10hrs Previous - 8hrs Study 4hrs
-Previous - 7hrs Exercise 4hrs Previous - 5hrs Social 5hrs Previous - 10hrs Self Care 2hrs Previous -
-2hrs
+<main>
+	<section>
+		<aside>
+			<h1 class="sr-only">Time tracking dashboard</h1>
+			<div>
+				<img src="/images/image-jeremy.png" alt="Headshot of Jeremy Robson" />
+				<h2>
+					<span>Report for</span>
+					<span>Jeremy Robson</span>
+				</h2>
+			</div>
+			<ul>
+				<li><a href="/">Daily</a></li>
+				<li><a href="/?interval=weekly">Weekly</a></li>
+				<li><a href="/?interval=monthly">Monthly</a></li>
+			</ul>
+		</aside>
+		<div>
+			{#each Array(6) as _}
+				<Card />
+			{/each}
+		</div>
+	</section>
+</main>
