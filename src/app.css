@@ -1,3 +1,13 @@
 @import 'tailwindcss/base';
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
+
+@layer base {
+	body {
+		@apply bg-neutral-verydarkblue font-rubik text-18 text-neutral-white;
+	}
+
+	a {
+		@apply hover:text-neutral-white focus:text-neutral-white focus:outline-none;
+	}
+}

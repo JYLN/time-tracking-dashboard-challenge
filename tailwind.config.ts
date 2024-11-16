@@ -18,7 +18,10 @@ export default {
 				violet: '#7335D2'
 			},
 			neutral: {
-				darkblue: '#1C204B',
+				darkblue: {
+					DEFAULT: '#1C204B',
+					hover: '#33397A'
+				},
 				desaturatedblue: '#7078C9',
 				paleblue: '#BBC0FF',
 				verydarkblue: '#0E1323',
