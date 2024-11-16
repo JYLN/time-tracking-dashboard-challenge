@@ -11,3 +11,9 @@
 		@apply hover:text-neutral-white focus:text-neutral-white focus:outline-none;
 	}
 }
+
+@layer components {
+	[aria-current='page'] {
+		@apply text-neutral-white;
+	}
+}

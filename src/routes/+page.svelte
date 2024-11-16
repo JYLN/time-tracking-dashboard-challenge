@@ -1,7 +1,17 @@
 <script lang="ts">
+	import type { TimeframeData } from '$lib/apptypes';
 	import Card from '$lib/components/Card/Card.svelte';
 	import '@fontsource-variable/rubik';
 	import '../app.css';
+	import type { PageData } from './$types';
+
+	interface Props {
+		data: PageData;
+	}
+
+	let { data }: Props = $props();
+
+	const intervals = ['Daily', 'Weekly', 'Monthly'];
 </script>
 
 <svelte:head>
@@ -30,14 +40,24 @@
 			<ul
 				class="flex justify-around py-6 text-neutral-desaturatedblue lg:flex-col lg:justify-start lg:gap-5 lg:px-8"
 			>
-				<li><a href="/">Daily</a></li>
-				<li><a href="/?interval=weekly">Weekly</a></li>
-				<li><a href="/?interval=monthly">Monthly</a></li>
+				{#each intervals as intervalLink}
+					<li>
+						<a
+							href="/?interval={intervalLink.toLowerCase()}"
+							aria-current={data.interval === intervalLink.toLowerCase() ? 'page' : undefined}
+						>
+							{intervalLink}
+						</a>
+					</li>
+				{/each}
 			</ul>
 		</aside>
 		<div class="grid gap-6 lg:grid-cols-3 lg:gap-[1.875rem]">
-			{#each Array(6) as _}
-				<Card />
+			{#each data.timeData as timeframe}
+				<Card
+					title={timeframe.title as TimeframeData['title']}
+					data={timeframe.timeframes[data.interval]}
+				/>
 			{/each}
 		</div>
 	</section>
