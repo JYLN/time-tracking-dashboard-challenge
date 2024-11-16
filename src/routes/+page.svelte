@@ -59,6 +59,7 @@
 				<Card
 					title={timeframe.title as TimeframeData['title']}
 					data={timeframe.timeframes[data.interval]}
+					interval={data.interval}
 				/>
 			{/each}
 		</div>

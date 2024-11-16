@@ -1,15 +1,13 @@
 <script lang="ts">
-	import { page } from '$app/stores';
 	import type { TimeframeData } from '$lib/apptypes';
 
 	interface Props {
 		title: TimeframeData['title'];
 		data: TimeframeData['timeframes'][keyof TimeframeData['timeframes']];
+		interval: 'daily' | 'weekly' | 'monthly';
 	}
 
-	let { title, data }: Props = $props();
-
-	const interval = $page.data.interval;
+	let { title, data, interval }: Props = $props();
 
 	const icons = {
 		Work: '/images/icon-work.svg',
