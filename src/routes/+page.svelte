@@ -43,7 +43,9 @@
 				{#each intervals as intervalLink}
 					<li>
 						<a
-							href="/?interval={intervalLink.toLowerCase()}"
+							href={intervalLink.toLowerCase() === 'daily'
+								? '/'
+								: `/?interval=${intervalLink.toLowerCase()}`}
 							aria-current={data.interval === intervalLink.toLowerCase() ? 'page' : undefined}
 						>
 							{intervalLink}
